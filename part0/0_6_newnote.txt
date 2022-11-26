@@ -1,0 +1,18 @@
+note over browser:
+When button is clicked, browser adds input to its list of notes,
+re-renders notes to display the new one
+end note
+
+note over browser:
+browser sends new note in JSON form 
+(with fields content and date)
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over server:
+server executes the event handler,
+adds received note to notes
+end note
+
+server-->browser: Status code 201 added
