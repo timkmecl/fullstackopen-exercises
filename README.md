@@ -17,3 +17,11 @@
 [6-14](https://fullstackopen.com/en/part1/a_more_complex_state_debugging_react_apps#exercises-1-6-1-14)
 
 	[exercise code](part1)
+
+2. **Communicating with server**
+([Part 2](https://fullstackopen.com/en/part2))
+
+	[instructions 1-5](https://fullstackopen.com/en/part2/rendering_a_collection_modules#exercises-2-1-2-5),
+[6-10](https://fullstackopen.com/en/part2/forms#exercises-2-6-2-10)
+
+	[exercise code](part2)
