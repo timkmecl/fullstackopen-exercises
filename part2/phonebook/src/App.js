@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
+import Notification from './components/Notification'
 
 import phonebookService from './services/phonebookService'
 
@@ -11,6 +12,8 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [searchName, setSearchName] = useState('')
+
+  const [notification, setNotification] = useState({message: null, color: null})
 
   
   useEffect(() => {
@@ -32,6 +35,13 @@ const App = () => {
 
     const existingPerson = persons.find(person => person.name === newName)
 
+    const showNotification = (message, color) => {
+      setNotification({message, color})
+      setTimeout(() => {
+        setNotification({message: null, color: null})
+      }, 5000)
+    }
+
     if (existingPerson) {
       if(window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
         phonebookService
@@ -40,6 +50,11 @@ const App = () => {
             setPersons(persons.map(person => person.id !== returnedPerson.id ? person : returnedPerson))
             setNewName('')
             setNewNumber('')
+            showNotification(`Updated ${returnedPerson.name}`, 'green')
+          })
+          .catch(() => {
+            showNotification(`Information of ${newName} has already been removed from server`, 'red')
+            setPersons(persons.filter(person => person.name !== newName))
           })
       }
     } else {
@@ -49,6 +64,7 @@ const App = () => {
           setPersons(persons.concat(returnedPerson))
           setNewName('')
           setNewNumber('')
+          showNotification(`Updated ${returnedPerson.name}`, 'green')
       })
     }
   }
@@ -79,6 +95,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification message={notification.message} color={notification.color} />
       <Filter searchName={searchName} onSearchNameChange={handleSearchNameChange} />
 
       <h2>Add a new</h2>
