@@ -1,28 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
-
-morgan.token('json', (req, res) => {
-	return JSON.stringify(req.body)
-})
-
-const formatFunction = (tokens, req, res) => {
-	let string = [
-    tokens.method(req, res),
-    tokens.url(req, res),
-    tokens.status(req, res),
-    tokens.res(req, res, 'content-length'), '-',
-    tokens['response-time'](req, res), 'ms'
-  ].join(' ')
-
-	if (req.method === 'POST') {
-		string += ` ${tokens.json(req, res)}`
-	}
-	return string
-}
-
-const app = express()
-app.use(express.json())
-app.use(morgan(formatFunction))
+const cors = require('cors')
 
 
 let persons = [
@@ -47,6 +25,34 @@ let persons = [
 		"number": "39-23-6423122"
 	}
 ]
+
+
+morgan.token('json', (req, res) => {
+	return JSON.stringify(req.body)
+})
+
+const formatFunction = (tokens, req, res) => {
+	let string = [
+    tokens.method(req, res),
+    tokens.url(req, res),
+    tokens.status(req, res),
+    tokens.res(req, res, 'content-length'), '-',
+    tokens['response-time'](req, res), 'ms'
+  ].join(' ')
+
+	if (req.method === 'POST') {
+		string += ` ${tokens.json(req, res)}`
+	}
+	return string
+}
+
+
+const app = express()
+app.use(express.json())
+app.use(morgan(formatFunction))
+app.use(cors())
+
+app.use(express.static('build'))
 
 
 app.get('/api/persons', (request, response) => {
@@ -98,7 +104,7 @@ app.get('/info', (request, response) => {
 })
 
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
-	console.log(`Server running on port ${PORT}`)
+  console.log(`Server running on port ${PORT}`)
 })
