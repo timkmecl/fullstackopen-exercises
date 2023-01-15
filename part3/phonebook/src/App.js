@@ -52,9 +52,8 @@ const App = () => {
             setNewNumber('')
             showNotification(`Updated ${returnedPerson.name}`, 'green')
           })
-          .catch(() => {
-            showNotification(`Information of ${newName} has already been removed from server`, 'red')
-            setPersons(persons.filter(person => person.name !== newName))
+          .catch(error => {
+            showNotification(error.response.data.error, 'red')
           })
       }
     } else {
@@ -65,7 +64,10 @@ const App = () => {
           setNewName('')
           setNewNumber('')
           showNotification(`Updated ${returnedPerson.name}`, 'green')
-      })
+        })
+        .catch(error => {
+          showNotification(error.response.data.error, 'red')
+        })
     }
   }
 
