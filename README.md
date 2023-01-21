@@ -28,9 +28,10 @@ Rendering a collection, modules; Forms; Getting data from server; Altering data 
 
 - [instructions 1-5](https://fullstackopen.com/en/part2/rendering_a_collection_modules#exercises-2-1-2-5),
 [6-10](https://fullstackopen.com/en/part2/forms#exercises-2-6-2-10),
-[11-14](https://fullstackopen.com/en/part2/getting_data_from_server#exercises-2-11-2-14),
-[15-18](https://fullstackopen.com/en/part2/altering_data_in_server#exercises-2-15-2-18), 
-[19-20](https://fullstackopen.com/en/part2/adding_styles_to_react_app#exercises-2-19-2-20)
+[11](https://fullstackopen.com/en/part2/getting_data_from_server#exercise-2-11),
+[12-15](https://fullstackopen.com/en/part2/altering_data_in_server#exercises-2-12-2-15),
+[16-17](https://fullstackopen.com/en/part2/adding_styles_to_react_app#exercises-2-16-2-17), 
+[18-20](https://fullstackopen.com/en/part2/adding_styles_to_react_app#exercises-2-18-2-20)
 
 - [exercise solutions code](part2)
 
@@ -51,3 +52,15 @@ Node.js and Express; Deploying app to internet; Saving data to MongoDB; Validati
 - [exercise solutions code](part3)
 	
 - [live phonebook app](https://fso-phonebook-tim.fly.dev/)
+
+### [Part 4](https://fullstackopen.com/en/part4) - Testing Express servers, user administration
+
+Structure of backend application, introduction to testing; Testing the backend; User administration; Token authentication
+
+- [instructions 1-2](https://fullstackopen.com/en/part4/structure_of_backend_application_introduction_to_testing#exercises-4-1-4-2),
+[3-7](https://fullstackopen.com/en/part4/structure_of_backend_application_introduction_to_testing#exercises-4-3-4-7),
+[8-12](https://fullstackopen.com/en/part4/testing_the_backend#exercises-4-8-4-12),
+[13-14](https://fullstackopen.com/en/part4/testing_the_backend#exercises-4-13-4-14),
+[15-23](https://fullstackopen.com/en/part4/token_authentication#exercises-4-15-4-23)
+
+- [exercise solutions code](part4)
