@@ -8,7 +8,7 @@ General info; Fundamentals of Web apps
 
 - [instructions](https://fullstackopen.com/en/part0/fundamentals_of_web_apps#exercises-0-1-0-6)
 
-- [exercise solutions code](part0)
+- [solutions](part0)
 
 
 ### [Part 1](https://fullstackopen.com/en/part1) - Introduction to React
@@ -19,7 +19,7 @@ Introduction to React; JavaScript; Component state, event handlers; A more compl
 [3-5](https://fullstackopen.com/en/part1/java_script#exercises-1-3-1-5),
 [6-14](https://fullstackopen.com/en/part1/a_more_complex_state_debugging_react_apps#exercises-1-6-1-14)
 
-- [exercise solutions code](part1)
+- [solutions](part1)
 
 
 ### [Part 2](https://fullstackopen.com/en/part2) - Communicating with server
@@ -33,7 +33,7 @@ Rendering a collection, modules; Forms; Getting data from server; Altering data 
 [16-17](https://fullstackopen.com/en/part2/adding_styles_to_react_app#exercises-2-16-2-17), 
 [18-20](https://fullstackopen.com/en/part2/adding_styles_to_react_app#exercises-2-18-2-20)
 
-- [exercise solutions code](part2)
+- [solutions](part2)
 
 
 ### [Part 3](https://fullstackopen.com/en/part3) - Programming a server with NodeJS and Express
@@ -49,7 +49,7 @@ Node.js and Express; Deploying app to internet; Saving data to MongoDB; Validati
 [19-21](https://fullstackopen.com/en/part3/validation_and_es_lint#exercises-3-19-3-21),
 [22](https://fullstackopen.com/en/part3/validation_and_es_lint#exercise-3-22)
 
-- [exercise solutions code](part3)
+- [solutions](part3)
 	
 - [live phonebook app](https://fso-phonebook-tim.fly.dev/)
 
@@ -63,4 +63,4 @@ Structure of backend application, introduction to testing; Testing the backend; 
 [13-14](https://fullstackopen.com/en/part4/testing_the_backend#exercises-4-13-4-14),
 [15-23](https://fullstackopen.com/en/part4/token_authentication#exercises-4-15-4-23)
 
-- [exercise solutions code](part4)
+- [solutions](part4)
