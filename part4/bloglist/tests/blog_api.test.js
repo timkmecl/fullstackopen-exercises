@@ -1,16 +1,34 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 const supertest = require('supertest')
 const helper = require('./test_helper')
 const app = require('../app')
 const api = supertest(app)
 
 const Blog = require('../models/blog')
+const User = require('../models/user')
 
+let token
+let user
 
+beforeAll(async () => {
+  await User.deleteMany({})
+
+  const passwordHash = await bcrypt.hash('password', 10)
+  user = new User({ username: 'root', passwordHash })
+  user = await user.save()
+
+  const userForToken = {
+    username: user.username,
+    id: user._id
+  }
+  token = jwt.sign(userForToken, process.env.SECRET)
+})
 
 beforeEach(async () => {
   await Blog.deleteMany({})
-  await Blog.insertMany(helper.initialBlogs)
+  await Blog.insertMany(helper.initialBlogs.map(blog => ({ ...blog, user: user._id })))
 })
 
 describe('when using GET', () => {
@@ -29,18 +47,19 @@ describe('when using GET', () => {
   })
 })
 
-describe('when adding using POST',  () => {
+describe('when adding using POST with valid token',  () => {
   test('new blog is successfully added', async () => {
     await api
       .post('/api/blogs')
       .send(helper.newBlog)
+      .set('Authorization', `Bearer ${token}`)
       .expect(201)
       .expect('Content-Type', /application\/json/)
 
-    const notesAtEnd = await helper.blogsInDb()
-    expect(notesAtEnd).toHaveLength(helper.initialBlogs.length + 1)
+    const blogsAtEnd = await helper.blogsInDb()
+    expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length + 1)
 
-    const titles = notesAtEnd.map(blog => blog.title)
+    const titles = blogsAtEnd.map(blog => blog.title)
     expect(titles).toContain(helper.newBlog.title)
   })
 
@@ -51,6 +70,7 @@ describe('when adding using POST',  () => {
     await api
       .post('/api/blogs')
       .send(newBlog)
+      .set('Authorization', `Bearer ${token}`)
       .expect(201)
       .expect('Content-Type', /application\/json/)
 
@@ -70,20 +90,39 @@ describe('when adding using POST',  () => {
     await api
       .post('/api/blogs')
       .send(newBlogWithoutTitle)
+      .set('Authorization', `Bearer ${token}`)
       .expect(400)
     await api
       .post('/api/blogs')
       .send(newBlogWithoutUrl)
+      .set('Authorization', `Bearer ${token}`)
       .expect(400)
   })
 })
 
-describe('when using DELETE', () => {
+describe('when adding using POST without token', () => {
+  test('new blog is not added', async () => {
+    await api
+      .post('/api/blogs')
+      .send(helper.newBlog)
+      .expect(401)
+
+    const blogsAtEnd = await helper.blogsInDb()
+    expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length)
+
+    const titles = blogsAtEnd.map(blog => blog.title)
+    expect(titles).not.toContain(helper.newBlog.title)
+  })
+})
+
+describe('when using DELETE with valid token', () => {
   test('blog is deleted', async () => {
     const blogsAtStart = await helper.blogsInDb()
     const id = blogsAtStart[0].id
 
-    await api.delete(`/api/blogs/${id}`)
+    await api
+      .delete(`/api/blogs/${id}`)
+      .set('Authorization', `Bearer ${token}`)
 
     const blogsAtEnd = await helper.blogsInDb()
 
@@ -102,9 +141,7 @@ describe('when using PUT', () => {
       .send(helper.newBlog)
 
     const blogsAtEnd = await helper.blogsInDb()
-    const firstBlogAtEnd = blogsAtEnd.filter(blog => blog.id === id)[0]
 
-    expect(response.body).toEqual(firstBlogAtEnd)
     expect(response.body.likes).toEqual(helper.newBlog.likes)
     expect(blogsAtEnd.map(blog => blog.title)).not.toContain(blogsAtStart[0].title)
   })

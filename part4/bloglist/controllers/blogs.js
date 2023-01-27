@@ -1,6 +1,7 @@
 const blogsRouter = require('express').Router()
 const Blog =  require('../models/blog')
-const User = require('../models/user')
+const { userExtractor } = require('../utils/middleware')
+
 
 blogsRouter.get('/', async (request, response) => {
   const blogs = await Blog
@@ -9,13 +10,9 @@ blogsRouter.get('/', async (request, response) => {
   response.json(blogs)
 })
 
-blogsRouter.post('/', async (request, response) => {
-  const { title, author, url, likes, userId } = request.body
-
-  // const user = await User.findById(userId)
-  const user = (await User.find({}))[0]
-
-  console.log(user)
+blogsRouter.post('/', userExtractor, async (request, response) => {
+  const { title, author, url, likes } = request.body
+  const user = request.user
 
   const blog = new Blog({
     title, author, url, likes,
@@ -29,7 +26,18 @@ blogsRouter.post('/', async (request, response) => {
   response.status(201).json(savedBlog)
 })
 
-blogsRouter.delete('/:id', async (request, response) => {
+blogsRouter.delete('/:id', userExtractor, async (request, response) => {
+  const user = request.user
+  const blog = await Blog.findById(request.params.id)
+
+  if (!blog) {
+    response.status(204).end()
+  }
+
+  if (blog.user.toString() !== user._id.toString()) {
+    response.status(401).json({ error: 'blog not created by the user' })
+  }
+
   await Blog.findByIdAndDelete(request.params.id)
   response.status(204).end()
 })
