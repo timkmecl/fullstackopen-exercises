@@ -63,4 +63,17 @@ Structure of backend application, introduction to testing; Testing the backend; 
 [13-14](https://fullstackopen.com/en/part4/testing_the_backend#exercises-4-13-4-14),
 [15-23](https://fullstackopen.com/en/part4/token_authentication#exercises-4-15-4-23)
 
-- [solutions](part4)
+- [solutions](part4_5)
+
+
+### [Part 5](https://fullstackopen.com/en/part5) - Testing React apps
+
+Login in frontend; props.children and proptypes; Testing React apps; End to end testing
+
+- [instructions 1-4](https://fullstackopen.com/en/part5/login_in_frontend#exercises-5-1-5-4)
+[5-11](https://fullstackopen.com/en/part5/props_children_and_proptypes#exercises-5-5-5-11),
+[12](https://fullstackopen.com/en/part5/props_children_and_proptypes#exercise-5-12),
+[13-16](https://fullstackopen.com/en/part5/testing_react_apps#exercises-5-13-5-16),
+[17-23](https://fullstackopen.com/en/part5/end_to_end_testing#exercises-5-17-5-23)
+
+- [solutions](part4_5)
