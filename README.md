@@ -1,4 +1,11 @@
-### Exercise solutions for University of Helsinki's [Full Stack open](https://fullstackopen.com/) online course.
+## Exercise solutions for University of Helsinki's [Full Stack open](https://fullstackopen.com/) course.
+
+This course serves as an introduction to modern web application development with JavaScript. The main focus is on building single page applications with React that use REST APIs built with Node.js. 
+The course covers testing, configuration and environment management, the use of databases for storing the application’s data amongst other things. [[about]](https://fullstackopen.com/en/about/)
+
+### My certificate
+[![My Certificate](certificate-fullstack-en.png)](https://studies.cs.helsinki.fi/stats/api/certificate/fullstackopen/en/47c5abeed0c3c58c064b9c0617c6f2b5)
+
 
 ## Content:
 
