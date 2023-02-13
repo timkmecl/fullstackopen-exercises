@@ -77,10 +77,25 @@ Structure of backend application, introduction to testing; Testing the backend; 
 
 Login in frontend; props.children and proptypes; Testing React apps; End to end testing
 
-- [instructions 1-4](https://fullstackopen.com/en/part5/login_in_frontend#exercises-5-1-5-4)
+- [instructions 1-4](https://fullstackopen.com/en/part5/login_in_frontend#exercises-5-1-5-4),
 [5-11](https://fullstackopen.com/en/part5/props_children_and_proptypes#exercises-5-5-5-11),
 [12](https://fullstackopen.com/en/part5/props_children_and_proptypes#exercise-5-12),
 [13-16](https://fullstackopen.com/en/part5/testing_react_apps#exercises-5-13-5-16),
 [17-23](https://fullstackopen.com/en/part5/end_to_end_testing#exercises-5-17-5-23)
 
 - [solutions](part4_5)
+
+### [Part 6](https://fullstackopen.com/en/part6) - Advanced state management
+
+Flux-architecture and Redux; Many reducers; Communicating with server in a redux application; React Query, useReducer and the context
+
+- [instructions 1-2](https://fullstackopen.com/en/part6/flux_architecture_and_redux#exercises-6-1-6-2),
+[3-8](https://fullstackopen.com/en/part6/flux_architecture_and_redux#exercises-6-3-6-8),
+[9](https://fullstackopen.com/en/part6/many_reducers#exercise-6-9),
+[10-13](https://fullstackopen.com/en/part6/many_reducers#exercises-6-10-6-13),
+[14-15](https://fullstackopen.com/en/part6/communicating_with_server_in_a_redux_application#exercises-6-14-6-15),
+[16-19](https://fullstackopen.com/en/part6/communicating_with_server_in_a_redux_application#exercises-6-16-6-19),
+[20-22](https://fullstackopen.com/en/part6/react_query_use_reducer_and_the_context#exercises-6-20-6-22),
+[23-24](https://fullstackopen.com/en/part6/react_query_use_reducer_and_the_context#exercises-6-23-6-24)
+
+- [solutions](part6)
