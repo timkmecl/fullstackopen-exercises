@@ -85,6 +85,7 @@ Login in frontend; props.children and proptypes; Testing React apps; End to end 
 
 - [solutions](part4_5)
 
+
 ### [Part 6](https://fullstackopen.com/en/part6) - Advanced state management
 
 Flux-architecture and Redux; Many reducers; Communicating with server in a redux application; React Query, useReducer and the context
@@ -99,3 +100,10 @@ Flux-architecture and Redux; Many reducers; Communicating with server in a redux
 [23-24](https://fullstackopen.com/en/part6/react_query_use_reducer_and_the_context#exercises-6-23-6-24)
 
 - [solutions](part6)
+
+
+### [Part 7](https://fullstackopen.com/en/part7) - React router, custom hooks, styling app with CSS and webpack
+
+React Router; Custom hooks; More about styles; Webpack; Class components, Miscellaneous
+
+- [instructions 1-3](https://fullstackopen.com/en/part7/react_router#exercises-7-1-7-3)
